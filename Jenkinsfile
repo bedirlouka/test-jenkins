@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('clone project') {
             steps {
+		sh 'rm -rf timesheet-devops'
                 sh 'git clone https://github.com/mhassini/timesheet-devops'
             }
         }
