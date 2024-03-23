@@ -7,6 +7,12 @@ pipeline {
                 sh 'git clone https://github.com/mhassini/timesheet-devops'
             }
         }
+	stage('build') {
+            steps {
+                sh 'mvn clean install -X'
+            }
+        }
+        
        
         
     }
