@@ -1,16 +1,27 @@
 pipeline {
     agent any
-
     stages {
-        stage('clone project') {
+        stage('Checkout') {
             steps {
-		sh 'rm -rf timesheet-devops'
-                sh 'git clone https://github.com/mhassini/timesheet-devops'
+                // Fetch the code from the master branch of GitHub
+                git branch: 'main', url: 'https://github.com/bedirlouka/test-jenkins.git'
             }
         }
-	stage('build') {
+        
+        
+        stage('Compile') {
             steps {
-                sh 'mvn clean install -X'
+                // Compile the Maven project
+                sh 'mvn compile'
+            }
+        }
+        
+        stage('SonarQube analysis') {
+            steps {
+               
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
         
