@@ -7,23 +7,19 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/bedirlouka/test-jenkins.git'
             }
         }
-        
-        
         stage('Compile') {
             steps {
                 // Compile the Maven project
                 sh 'mvn compile'
             }
         }
-        
         stage('SonarQube analysis') {
             steps {
-               
-               
-                    sh 'mvn sonar:sonar '
-                
+                // Exécution de l'analyse de code avec SonarQube
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+                }
             }
         }
-        
     }
 }
