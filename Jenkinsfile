@@ -16,12 +16,12 @@ pipeline {
                         -Dsonar.login=654ace06b219a3a7c1f7c0e8dfa66bf7a8380867'
             }
         }
-        stage('Deploy to nexus'){
+      /*  stage('Deploy to nexus'){
             steps
                 {
                     echo 'Deploying to nexus server'
                     sh 'mvn deploy'
                 }
-        }
+        }*/
     }
 }
