@@ -10,7 +10,6 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 // Exécution de l'analyse de code avec SonarQube
-                
                   sh ' mvn sonar:sonar \
                         -Dsonar.projectKey=timsheet-devops \
                         -Dsonar.host.url=http://192.168.56.2:9000 \
