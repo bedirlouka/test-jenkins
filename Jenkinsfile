@@ -1,10 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Compile') {
+        stage('clean install') {
             steps {
                 // Compile the Maven project
-                sh 'mvn compile'
+                sh 'mvn clean install'
             }
         }
         stage('SonarQube analysis') {
