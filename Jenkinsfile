@@ -22,6 +22,7 @@ pipeline {
                         -Dsonar.host.url=http://192.168.56.2:9000 \
                         -Dsonar.login=654ace06b219a3a7c1f7c0e8dfa66bf7a8380867'
             }
+        }
         stage('Deploy to nexus'){
             steps
                 {
