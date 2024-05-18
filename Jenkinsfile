@@ -4,7 +4,7 @@ pipeline {
         stage('clean install') {
             steps {
                 // Compile the Maven project
-                sh 'mvn clean'
+                sh 'mvn clean install'
             }
         }
         stage('SonarQube analysis') {
